@@ -1,0 +1,23 @@
+---
+type Props = {
+  label: string;
+  href: string;
+  type: 'link';
+};
+
+const { label, href, type } = Astro.props;
+---
+
+<a href={href} class="button">
+  <span class="button__label">{label}</span>
+</a>
+
+<style>
+  .button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    padding: 0.75rem 1rem;
+  }
+</style>

@@ -1,16 +1,162 @@
 ---
-
+import Card from '../components/Card.astro';
+import LayoutMain from '../layouts/LayoutMain.astro';
 ---
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
-</html>
+<LayoutMain>
+  <section class="section hero">
+    <div class="heroContainer">
+      <h1 class="heroTitle">You don't wanna spend more money?</h1>
+      <p class="heroSubtitle">Tough, we're going to Tomorrow Land b*****s!</p>
+    </div>
+  </section>
+  <section class="section news">
+    <div class="sectionHeader">
+      <h1 class="title">News and updates</h1>
+      <p>Stay informed.</p>
+    </div>
+    <div class="bento">
+      <div class="bentoItem large">
+        <Card
+          title="Official TomorrowLand Site"
+          description="Visit the official TomorrowLand Site for more details"
+          image="https://prismic-assets-cdn.tomorrowland.com/aDcBKCdWJ-7kSoG1_Still_10_wide_1.jpg?crop=1920%2C1067%2C0%2C3&width=1800&height=1000"
+        />
+      </div>
+      <div class="bentoItem small">
+        <Card
+          title="Route 24 RoadTrip"
+          description="Details on the Route 24 RoadTrip"
+          image="/route-24.png"
+        />
+      </div>
+      <div class="bentoItem small">
+        <Card
+          title="Camping Stops"
+          description="Visit the official TomorrowLand Site for more details"
+          image="https://www.theplaidzebra.com/wp-content/uploads/2017/05/campingtrip.jpg"
+        />
+      </div>
+      <div class="bentoItem small">
+        <Card
+          title="The Rules"
+          description="Visit the official TomorrowLand Site for more details"
+          image="https://media.istockphoto.com/id/1407973573/photo/magnifier-focuses-on-the-word-rules-analyzing-or-following-the-rules.jpg?s=612x612&w=0&k=20&c=OOjAUnXBt1VzqqmrGI_ste007yLhRCyoBrFjJsAxcPw="
+        />
+      </div>
+
+      <div class="bentoItem small">
+        <Card
+          title=""
+          description=""
+          image="https://pbs.twimg.com/media/FyqtThKWwAAMau_.jpg"
+        />
+      </div>
+      <div class="bentoItem large">
+        <Card
+          title="The Friendship Garden"
+          description="Visit the official TomorrowLand Site for more details"
+          image="https://todosobretomorrowland.com/wp-content/uploads/2024/04/como-comprar-entradas-friendship-garden-tomorrowland-paquetes.jpg"
+        />
+      </div>
+    </div>
+  </section>
+</LayoutMain>
+
+<style>
+  .section {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    width: 100%;
+  }
+
+  .heroContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    height: 600px;
+    width: 100%;
+
+    .heroTitle {
+      font-size: 4rem;
+      font-weight: 700;
+      text-align: center;
+    }
+  }
+  .bento {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(4, 1fr);
+    gap: 2rem;
+
+    width: 100%;
+    height: 1000px;
+
+    @media screen and (max-width: 1024px) {
+      gap: 1rem;
+      grid-template-columns: repeat(3, 1fr);
+      grid-template-rows: repeat(3, 1fr);
+    }
+
+    @media screen and (max-width: 900px) {
+      gap: 1rem;
+      grid-template-columns: repeat(2, 1fr);
+      grid-template-rows: repeat(4, 1fr);
+    }
+
+    @media screen and (max-width: 768px) {
+      gap: 1rem;
+      grid-template-columns: repeat(1, 1fr);
+      grid-template-rows: repeat(6, 1fr);
+    }
+
+    .bentoItem {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      grid-column: span 1;
+      grid-row: span 1;
+
+      border-radius: 0.25rem;
+      overflow: hidden;
+
+      background: purple;
+
+      &.large {
+        grid-column: span 2;
+        grid-row: span 2;
+      }
+
+      &.small {
+        background: blue;
+        grid-column: span 1;
+        grid-row: span 2;
+      }
+
+      /* Same for 992px */
+      @media screen and (max-width: 1024px) {
+        &.large {
+          grid-column: span 2;
+          grid-row: span 1;
+        }
+
+        &.small {
+          grid-column: span 1;
+          grid-row: span 1;
+        }
+      }
+
+      @media screen and (max-width: 768px) {
+        &.small,
+        &.large {
+          grid-column: span 1;
+          grid-row: span 1;
+        }
+      }
+    }
+  }
+</style>
